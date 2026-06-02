@@ -24,6 +24,16 @@ Conversation saved to Supabase → trace logged to Langfuse
 
 ---
 
+## Demo
+
+[![UI Swagger](docs/4_uiswagger.png)]
+[![Document](docs/4_document.png)]
+[![Chat](docs/4_chat.png)]
+[![History](docs/4_history.png)]
+[![LangFuse](docs/4_langfuse.png)]
+
+---
+
 ## API Endpoints
 
 | Method | Endpoint | Description |
