@@ -24,6 +24,20 @@ Conversation saved to Supabase → trace logged to Langfuse
 
 ---
 
+## Demo
+
+[![UI Swagger](https://github.com/richardy-lobo-sapan/llm-api-production/raw/main/docs/4_uiswagger.png)](/richardy-lobo-sapan/llm-api-production/blob/main/docs/4_uiswagger.png)
+
+[![Document](https://github.com/richardy-lobo-sapan/llm-api-production/raw/main/docs/4_document.png)](/richardy-lobo-sapan/llm-api-production/blob/main/docs/4_document.png)
+
+[![Chat](https://github.com/richardy-lobo-sapan/llm-api-production/raw/main/docs/4_chat.png)](/richardy-lobo-sapan/llm-api-production/blob/main/docs/4_chat.png)
+
+[![History](https://github.com/richardy-lobo-sapan/llm-api-production/raw/main/docs/4_history.png)](/richardy-lobo-sapan/llm-api-production/blob/main/docs/4_history.png)
+
+[![LangFuse](https://github.com/richardy-lobo-sapan/llm-api-production/raw/main/docs/4_langfuse.png)](/richardy-lobo-sapan/llm-api-production/blob/main/docs/4_langfuse.png)
+
+---
+
 ## API Endpoints
 
 | Method | Endpoint | Description |
