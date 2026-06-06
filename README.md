@@ -2,6 +2,8 @@
 
 A production-ready LLM API with **FastAPI**, **RAG (Retrieval-Augmented Generation)**, **Langfuse observability**, and **Supabase** persistent storage — deployed on Railway.
 
+![Python](https://img.shields.io/badge/python-3.12-blue) ![Railway](https://img.shields.io/badge/deployed-Railway-purple) ![License](https://img.shields.io/badge/license-MIT-green)
+
 🚀 **Live API:** https://llm-api-production-production.up.railway.app/docs
 
 ---
@@ -136,6 +138,7 @@ llm-api-production/
 ├── database.py      # Supabase chat history
 ├── schemas.py       # Pydantic request/response models
 ├── requirements.txt # Dependencies
+├── .env.example     # Template for required environment variables
 ├── .python-version  # Python 3.12 for Railway
 ├── .env             # API keys (not on GitHub)
 └── .gitignore
@@ -158,6 +161,8 @@ llm-api-production/
 
 ## Run Locally
 
+**Prerequisites:** Python 3.12, pip
+
 ```bash
 # Clone the repo
 git clone https://github.com/richardy-lobo-sapan/llm-api-production.git
@@ -165,22 +170,17 @@ cd llm-api-production
 
 # Create virtual environment
 python -m venv venv
-venv\Scripts\activate  # Windows
-source venv/bin/activate  # Mac/Linux
-
-# Install greenlet first (Windows)
-pip install greenlet --only-binary=:all:
+source venv/bin/activate      # Mac/Linux
+venv\Scripts\activate         # Windows
 
 # Install dependencies
+# (Windows only: ChromaDB requires a pre-built greenlet binary)
+pip install greenlet --only-binary=:all:
 pip install -r requirements.txt
 
-# Create .env file
-GOOGLE_API_KEY=your_gemini_key
-LANGFUSE_PUBLIC_KEY=your_langfuse_public_key
-LANGFUSE_SECRET_KEY=your_langfuse_secret_key
-LANGFUSE_HOST=https://us.cloud.langfuse.com
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_key
+# Set up environment variables
+cp .env.example .env
+# Open .env and fill in your API keys
 
 # Run the API
 uvicorn main:app --reload
@@ -193,6 +193,13 @@ Get free API keys:
 - Gemini: https://aistudio.google.com/apikey
 - Langfuse: https://us.cloud.langfuse.com
 - Supabase: https://supabase.com
+
+---
+
+## Limitations
+
+- **One document at a time** — uploading a new PDF replaces the previous one in the vector store. Session chat history in Supabase is preserved, but the document context resets.
+- ChromaDB is stored in memory/locally; restarting the server clears the vector store (re-upload your PDF after a restart).
 
 ---
 
@@ -215,3 +222,5 @@ Get free API keys:
 **Richardy Lobo' Sapan**
 - GitHub: [@richardy-lobo-sapan](https://github.com/richardy-lobo-sapan)
 - LinkedIn: [richardylobosapan](https://www.linkedin.com/in/richardylobosapan/)
+
+Found a bug or have a question? [Open an issue](https://github.com/richardy-lobo-sapan/llm-api-production/issues).
